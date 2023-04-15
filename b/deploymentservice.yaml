@@ -15,7 +15,7 @@ spec:
         app: backend
     spec:
       containers:
-      - name: backend-deploy
+      - name: backend-deployyyyyyyyyy
         image: godzella007/backend:latest
         imagePullPolicy: IfNotPresent
         ports:
