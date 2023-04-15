@@ -1,13 +1,15 @@
 FROM node:18-alpine 
 
-WORKDIR src/app
+WORKDIR /b
 
 COPY package*.json ./
 
 
 RUN npm install
 
-COPY . . 
+COPY ./public ./public
+
+COPY ./src ./src
 
 EXPOSE 8081
 
