@@ -1,13 +1,12 @@
-FROM node:18-alpine 
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package.json .
+COPY b/package*.json ./
+RUN npm install --only=production
 
-RUN npm install
-
-COPY . . 
+COPY b/ .
 
 EXPOSE 8081
 
-CMD ["npm","start"] 
+CMD [ "node", "server.js" ]
