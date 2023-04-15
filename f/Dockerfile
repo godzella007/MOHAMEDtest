@@ -1,16 +1,26 @@
-FROM node:18-alpine 
+# Build Stage
+FROM node:18-alpine AS build
 
-WORKDIR /b
+WORKDIR /app
 
-COPY package*.json ./
-
-
+COPY f/package*.json ./
 RUN npm install
 
-COPY ./public ./public
+COPY f/ .
 
-COPY ./src ./src
+RUN npm run build
+
+# Run Stage
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY --from=build /app/build /app/frontend
+
+COPY f/ .
+
+RUN npm install --only=production
 
 EXPOSE 8081
 
-CMD ["npm","start"] 
+CMD ["node", "server.js"]
