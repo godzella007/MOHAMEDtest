@@ -5,7 +5,8 @@ WORKDIR /app
 COPY b/package*.json ./
 RUN npm install --only=production
 
-COPY b/ .
+COPY b/ /app/
+
 
 EXPOSE 8081
 
