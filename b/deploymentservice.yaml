@@ -50,6 +50,7 @@ spec:
     port: 80
     targetPort: 3000
   type: NodePort
+  externalTrafficPolicy: Cluster
   nodePort: 30000 # specify your desired nodePort number
 ---
 apiVersion: v1
@@ -65,6 +66,7 @@ spec:
     port: 80
     targetPort: 3001
   type: NodePort
+  externalTrafficPolicy: Cluster
   nodePort: 30001 # specify your desired nodePort number
 ---
 apiVersion: v1
@@ -79,5 +81,4 @@ spec:
   - protocol: TCP
     port: 27017
     targetPort: 27017
-  type: NodePort
-  nodePort: 30002 # specify your desired nodePort number
+  type: ClusterIP
