@@ -15,8 +15,9 @@ spec:
         app: backend
     spec:
       containers:
-      - name: backend
+      - name: backend-deploy
         image: godzella007/backend:latest # Updated image name and version
+        imagePullPolicy: Never
         ports:
         - containerPort: 3001
         env:
@@ -41,4 +42,3 @@ spec:
       nodePort: 30001
   selector:
     app: backend
-
