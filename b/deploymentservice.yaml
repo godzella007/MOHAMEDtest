@@ -16,7 +16,7 @@ spec:
         app: backend
     spec:
       containers:
-      - name: backend-Container
+      - name: backendcontainer
         image: godzella007/backend:latest # Updated image name and version
         ports:
         - containerPort: 3001
