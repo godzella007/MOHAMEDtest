@@ -15,8 +15,9 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: frontend
-        image: godzella007/docker-test/frontend:latest
+      - name: frontend-deploy
+        image: godzella007/frontend:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 3000
         env:
