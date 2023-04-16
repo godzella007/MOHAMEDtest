@@ -23,4 +23,4 @@ RUN npm install --only=production
 
 EXPOSE 8081
 
-CMD ["node", "server.js"]
+CMD ["node", "server.js","npm","start"]
