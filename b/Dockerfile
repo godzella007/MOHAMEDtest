@@ -2,7 +2,7 @@
 FROM node:18-alpine
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /app ./app
 
 # Copy the package.json and package-lock.json files to the working directory
 COPY package*.json ./
@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 # Set environment variables
-ENV PORT=3001
+ENV PORT=8081
 ENV MONGODB_URI="mongodb://127.0.0.1:27017/Project_fin"
 
 # Copy the source code to the working directory
