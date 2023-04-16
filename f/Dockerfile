@@ -1,26 +1,27 @@
-# Build Stage
-FROM node:18-alpine AS build
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install
-
-COPY . .
-
-RUN npm run build
-
-# Run Stage
+# Use an official Node.js runtime as a parent image
 FROM node:18-alpine
 
+# Set the working directory to /app
 WORKDIR /app
 
-COPY --from=build /app/build /app/frontend
+# Copy the package.json and package-lock.json files to the working directory
+COPY package*.json ./
 
-COPY . .
+# Install dependencies
+RUN npm install
 
-RUN npm install --only=production
+# Set environment variables
+ENV PORT=8081
+ENV MONGODB_URI="mongodb://mongo:27017/mydb"
 
+# Copy the source code to the working directory
+COPY src/app ./app
+
+# Build the React.js application
+RUN npm run build
+
+# Expose port 3000
 EXPOSE 8081
 
-CMD ["node", "server.js","npm","start"]
+# Start the Node.js application
+CMD ["npm", "start"]
