@@ -15,7 +15,7 @@ ENV PORT=8081
 ENV MONGODB_URI="mongodb://127.0.0.1:27017/Project_fin"
 
 # Copy the source code to the working directory
-COPY src/app ./app
+COPY ./ ./
 
 # Build the React.js application
 RUN npm run build
