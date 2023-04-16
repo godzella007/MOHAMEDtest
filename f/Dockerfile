@@ -6,7 +6,7 @@ WORKDIR /app
 COPY f/package*.json ./
 RUN npm install
 
-COPY f/ .
+COPY . .
 
 RUN npm run build
 
@@ -17,7 +17,7 @@ WORKDIR /app
 
 COPY --from=build /app/build /app/frontend
 
-COPY f/ .
+COPY . .
 
 RUN npm install --only=production
 
