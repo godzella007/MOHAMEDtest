@@ -23,7 +23,7 @@ RUN npm run build
 FROM nginx:latest
 
 
-COPY --from=build /f/build /usr/share/nginx/html
+COPY --from=godzella007/frontend /f/build /usr/share/nginx/html
 
 
 # Expose port 80 of the nginx on default
