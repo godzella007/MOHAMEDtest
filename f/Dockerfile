@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:18-alpine as todo-frontend-build
+FROM node:18-alpine 
 
 # Set the working directory to /app
 WORKDIR /f
@@ -23,7 +23,7 @@ RUN npm run build
 FROM nginx:latest
 
 
-COPY --from=todo-frontend-build /f/build /usr/share/nginx/html
+COPY --from=build /f/build /usr/share/nginx/html
 
 
 # Expose port 80 of the nginx on default
