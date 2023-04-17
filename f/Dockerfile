@@ -20,14 +20,13 @@ ENV REACT_APP_baseAPIURL=<backend-app-service-ip>:<port>
 # Build the React.js application
 RUN npm run build
 
-FROM nginx:latest
 
 
-COPY --from=godzella007/frontend /f/build /usr/share/nginx/html
+
 
 
 # Expose port 80 of the nginx on default
-EXPOSE 80
+EXPOSE 8081
 
 # Start the Node.js application
 CMD ["npm", "start"]
