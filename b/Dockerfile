@@ -2,21 +2,21 @@
 FROM node:18-alpine
 
 # Set the working directory to /app
-WORKDIR /b
+WORKDIR app
 
 
 # Copy the package.json and package-lock.json files to the working directory
-COPY package*.json ./
+COPY package.json .
 
 # Install dependencies
 RUN npm install
 
 
 # Copy the source code to the working directory
-COPY ./app ./app
+COPY . .
 
 # Expose port 8081
 EXPOSE 8081
 
 # Start the Node.js application
-CMD ["npm", "start"]
+CMD ["node","server"]
