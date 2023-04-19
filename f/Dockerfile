@@ -16,7 +16,7 @@ COPY ./public ./public
 
 COPY ./src ./src
 
-ENV REACT_APP_baseAPIURL=192.168.59.105:30005
+ENV REACT_APP_baseAPIURL=192.168.59.106:30005
 # Build the React.js application
 RUN npm run build
 
