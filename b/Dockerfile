@@ -15,8 +15,8 @@ RUN npm install
 # Copy the source code to the working directory
 COPY . .
 
-# Expose port 8081
-EXPOSE 8081
+# Expose port 5000
+EXPOSE 5000
 
 # Start the Node.js application
-CMD ["node","server"]
+CMD ["node","server","npm","start"]
