@@ -16,8 +16,6 @@ COPY ./public ./public
 
 COPY ./src ./src
 
-ENV REACT_APP_baseAPIURL=192.168.59.106:30005
-# Build the React.js application
 RUN npm run build
 
 
@@ -25,7 +23,7 @@ RUN npm run build
 
 
 
-# Expose port 80 of the nginx on default
+
 EXPOSE 8081
 
 # Start the Node.js application
